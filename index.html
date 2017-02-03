@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html style="background: #000714">
+  <head>
+    <meta charset="utf-8">
+    <title>Pirates!</title>
+    <meta name="description" content="A playground">
+    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <script src="static/js/gameObjects.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <a-scene pool__enemy="mixin: enemy; size : 20;">
+      <a-assets>
+        <!-- <a-asset-item id="ship-model" src="ship.dae"> -->
+        <a-asset-item id="ship-obj" src="/static/ship.obj"></a-asset-item>
+        <a-asset-item id="ship-mtl" src="/static/ship.mtl"></a-asset-item>
+      </a-assets>
+
+      <!-- Environment -->
+      <a-plane color="#337EFF" rotation="-90 0 0" position="0 0 0" width="9000" height="9000"></a-plane>
+      <a-sky color="#4DB8FF"></a-sky>
+
+      <!-- Lights -->
+      <a-entity light="type: ambient; color: #fff; intensity: 1"></a-entity>
+      <a-entity light="type: directional; color: rgb(255, 241, 224); intensity: 1" position="0 1 -45"></a-entity>
+
+      <!-- Player -->
+      <a-entity position="0 3 0" player>
+        <a-camera>
+          <a-cursor color="#850B00"></a-cursor>
+        </a-camera>
+        <a-entity id="ship" scale="2 2 2" rotation="0 90 0" position="0 -1 0" obj-model="obj: #ship-obj; mtl: #ship-mtl"></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
